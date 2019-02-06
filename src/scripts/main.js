@@ -1,15 +1,16 @@
 import { getOrders,
     getProducts,
     getSizes,
-    createOrder } from "./DataManager.js"
+    createOrder } from "./DataManager.js";
+import { makeSizeList, makeProductList } from "./roasters.js";
 
 let sizes = []
 
 getSizes().then(
     (arrayOfSizes) => {
         // 100% sure we have sizes
-        console.log(arrayOfSizes)
         sizes = arrayOfSizes
+        makeSizeList(sizes);
     }
 ).then(
     () => {
@@ -18,8 +19,7 @@ getSizes().then(
 )
 .then(
     (productArray) => {
-        console.log(productArray)
-        console.log(sizes)
+        makeProductList(productArray);
     }
 )
 
